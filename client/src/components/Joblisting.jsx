@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'; 
-import { assets, JobCategories, JobLocations } from './../assets/assets';
+import { assets, JobCategories, JobLocations , jobsData} from './../assets/assets';
+import JobCard from './JobCard';   // or adjust the path based on your folder
 import { AppContext } from '../context/AppContext';
 
 const Joblisting = () => {
@@ -71,6 +72,10 @@ const Joblisting = () => {
         <h3 className='font-medium text-3xl py-2' id='job-list'>Latest jobs</h3>
         <p className='mb-8'>Get your desired job from top companies</p>
         <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'></div>
+        {jobsData.map((job,index)=>{
+          <JobCard key={index} job={job}/>
+        })}
+       
       </section>
     </div>
   );
